@@ -1,0 +1,38 @@
+	@media (max-width: 390px) {
+	.table thead th {
+	font-size: 6pt;
+	}
+	.form-control-sm {
+	font-size: 5pt;
+	height:1rem;
+	width:auto;
+	}
+	.quantity-input::placeholder {
+	font-size: 5pt;
+	}
+	.quantity-input {
+	height: auto;
+	width: 2rem;
+	}
+	.table tbody th,
+	td {
+	font-size: 5pt;
+	}
+	.modal-body table {
+	font-size: 7pt;
+	}
+	.modal-body .btn-sm {
+	font-size: 6pt;
+	padding: 2px 5px;
+	}
+	.btn, .btn-sm, .btn-rounded, .btn-primary{
+	font-size:6pt;
+	height:1.5rem;
+	width:auto;
+	}
+	.form-control, .input-group-text, .form-label{
+	font-size:6pt;
+	height:1.5rem;
+	width:auto;
+	}
+	}

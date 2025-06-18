@@ -1,0 +1,10 @@
+    .custom-input {
+    padding: 4px 8px; /* Mengurangi padding */
+    font-size: 14px;  /* Ukuran font */
+    line-height: 1.2; /* Menyesuaikan tinggi garis */
+    height: auto;     /* Biarkan tinggi mengikuti konten */
+}
+
+.text-primary {
+  color: #dc3545 !important;
+}
