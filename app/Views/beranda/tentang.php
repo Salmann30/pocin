@@ -38,18 +38,6 @@
     border-radius: 1rem !important;
 }
 
-/* Badge styling */
-.badge.bg-primary-subtle {
-    background-color: rgba(var(--bs-primary-rgb), 0.1);
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-    border-radius: 2rem;
-}
-
-.badge.bg-light {
-    font-weight: 500;
-    font-size: 0.85rem;
 }
 
 /* Icon circles */
@@ -97,13 +85,13 @@
         bottom: -10px;
         right: -10px;
     }
-    
+   
     .icon-circle {
         width: 60px;
         height: 60px;
         font-size: 1.25rem;
     }
-    
+   
     .mission-number {
         font-size: 1rem;
         min-width: 30px;
@@ -124,11 +112,21 @@
 .lead {
     font-weight: 400;
     line-height: 1.6;
+    font-size: 1.3rem;
 }
 
 p {
     color: #555;
     line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+.mission-item p {
+    font-size: 1.05rem;
 }
 </style>
 
@@ -140,7 +138,7 @@ p {
             <div class="col-lg-8 mx-auto text-center">
                 <span class="badge bg-primary-subtle text-primary mb-2 fs-4">Tentang Kami</span>
                 <h2 class="display-5 fw-bold mb-4">UMKM Pondok Cina</h2>
-            
+           
             </div>
         </div>
 
@@ -158,63 +156,68 @@ p {
                             </div>
                             <div class="col-lg-7">
                                 <h3 class="fw-bold mb-4">Mendukung Pelaku Usaha Lokal</h3>
-                                <p class="lead mb-4">UMKM Mekarsari berdedikasi untuk memberdayakan pelaku usaha kecil dengan menyediakan produk lokal berkualitas tinggi yang mencerminkan kekayaan budaya dan kreativitas Indonesia.</p>
+                                <p class="lead mb-4">UMKM Pondok Cina berdedikasi untuk memberdayakan pelaku usaha kecil dengan menyediakan produk lokal berkualitas tinggi yang mencerminkan kekayaan budaya dan kreativitas Indonesia.</p>
                                 <p>Kami berkomitmen untuk mendukung pertumbuhan ekonomi masyarakat melalui inovasi dan kerja sama, sambil menjaga nilai-nilai tradisional yang menjadi identitas kami.</p>
-                                
-                                <div class="d-flex flex-wrap gap-2 mt-4">
-                                    <span class="badge rounded-pill bg-light text-dark py-2 px-3">
-                                        <i class="fas fa-handshake me-2"></i>Kolaborasi
-                                    </span>
-                                    <span class="badge rounded-pill bg-light text-dark py-2 px-3">
-                                        <i class="fas fa-lightbulb me-2"></i>Inovasi
-                                    </span>
-                                    <span class="badge rounded-pill bg-light text-dark py-2 px-3">
-                                        <i class="fas fa-heart me-2"></i>Pemberdayaan
-                                    </span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vision & Mission combined card -->
+            <div class="col-lg-12">
+                <div class="card border-0 shadow-sm rounded-4">
+                    <div class="card-body p-4 p-lg-5">
+                        <div class="row">
+                            <!-- Vision Section -->
+                            <div class="col-lg-4 mb-4 mb-lg-0">
+                                <div class="vision-section text-center h-100 d-flex flex-column justify-content-center">
+                                    <h3 class="fw-bold mb-4 text-primary">Visi Kami</h3>
+                                    <div class="vision-quote position-relative p-4 bg-light rounded-3">
+                                        <i class="fas fa-quote-left text-primary mb-3" style="font-size: 2rem; opacity: 0.3; float: left;"></i>
+                                        <p class="mb-0 fw-semibold text-dark pt-5" style="font-size: 1.2rem; line-height: 1.6;">
+                                            Menjadi partner strategis dalam menumbuh kembangkan UMKM Pondokcina yang berdaya saing.
+                                        </p>
+                                        <i class="fas fa-quote-right text-primary mt-3" style="font-size: 2rem; opacity: 0.3; float: right;"></i>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Vision & Mission cards -->
-            <div class="col-lg-6">
-                <div class="card h-100 border-0 shadow-sm rounded-4">
-                    <div class="card-body p-4 p-lg-5">
-                        <div class="vision-icon mb-4">
-                            <span class="icon-circle bg-primary-subtle text-primary">
-                                <i class="fas fa-eye"></i>
-                            </span>
-                        </div>
-                        <h3 class="fw-bold mb-4">Visi Kami</h3>
-                        <p>Menjadi UMKM yang mampu menciptakan inovasi yang berkelanjutan, mandiri secara finansial dan operasional, serta memiliki daya saing tinggi baik di pasar lokal maupun nasional.</p>
-                        <p>Dengan fokus pada pengembangan produk berkualitas, pelayanan yang prima, dan adaptasi terhadap perkembangan teknologi, UMKM Mekarsari berkomitmen untuk memberdayakan masyarakat sekitar, menciptakan lapangan kerja, serta berkontribusi positif terhadap perekonomian daerah.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="card h-100 border-0 shadow-sm rounded-4">
-                    <div class="card-body p-4 p-lg-5">
-                        <div class="mission-icon mb-4">
-                            <span class="icon-circle bg-primary-subtle text-primary">
-                                <i class="fas fa-bullseye"></i>
-                            </span>
-                        </div>
-                        <h3 class="fw-bold mb-4">Misi Kami</h3>
-                        <div class="mission-list">
-                            <div class="mission-item d-flex mb-3">
-                                <div class="mission-number me-3">01</div>
-                                <p class="mb-0">Menjadi wadah saling belajar, berbagi dan mendukung bagi UMKM Mekarsari yang berkomitmen untuk naik kelas.</p>
+                            
+                            <!-- Divider -->
+                            <div class="col-lg-1 d-none d-lg-flex align-items-center justify-content-center">
+                                <div class="vr h-75 opacity-25"></div>
                             </div>
-                            <div class="mission-item d-flex mb-3">
-                                <div class="mission-number me-3">02</div>
-                                <p class="mb-0">Mengembangkan program pelatihan dan pendampingan yang efektif untuk meningkatkan keterampilan dan pengetahuan para pelaku UMKM.</p>
-                            </div>
-                            <div class="mission-item d-flex">
-                                <div class="mission-number me-3">03</div>
-                                <p class="mb-0">Mendorong kolaborasi antar UMKM dan pemangku kepentingan lainnya, termasuk pemerintah, lembaga keuangan, dan komunitas.</p>
+                            
+                            <!-- Mission Section -->
+                            <div class="col-lg-7">
+                                <h3 class="fw-bold mb-4 text-primary">Misi Kami</h3>
+                                <div class="mission-list">
+                                    <div class="mission-item d-flex mb-3 p-3 bg-light rounded-3">
+                                        <div class="mission-number me-3 bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 35px; height: 35px; font-size: 0.9rem; font-weight: bold;">01</div>
+                                        <p class="mb-0">Menjadi wadah sosialisasi, komunikasi, dan berbagi ilmu antara para pelaku UMKM Kelurahan Pondokcina.</p>
+                                    </div>
+                                    <div class="mission-item d-flex mb-3 p-3 bg-light rounded-3">
+                                        <div class="mission-number me-3 bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 35px; height: 35px; font-size: 0.9rem; font-weight: bold;">02</div>
+                                        <p class="mb-0">Menjembatani pelaku UMKM Pondokcina dengan pihak pemerintah dan swasta.</p>
+                                    </div>
+                                    <div class="mission-item d-flex mb-3 p-3 bg-light rounded-3">
+                                        <div class="mission-number me-3 bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 35px; height: 35px; font-size: 0.9rem; font-weight: bold;">03</div>
+                                        <p class="mb-0">Membawa UMKM Pondokcina ke pasar digital dan melek teknologi.</p>
+                                    </div>
+                                    <div class="mission-item d-flex mb-3 p-3 bg-light rounded-3">
+                                        <div class="mission-number me-3 bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 35px; height: 35px; font-size: 0.9rem; font-weight: bold;">04</div>
+                                        <p class="mb-0">Membuka dan memperluas jaringan para pelaku UMKM.</p>
+                                    </div>
+                                    <div class="mission-item d-flex mb-3 p-3 bg-light rounded-3">
+                                        <div class="mission-number me-3 bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 35px; height: 35px; font-size: 0.9rem; font-weight: bold;">05</div>
+                                        <p class="mb-0">Menumbuh kembangkan pelaku usaha baru yang berdaya saing.</p>
+                                    </div>
+                                    <div class="mission-item d-flex p-3 bg-light rounded-3">
+                                        <div class="mission-number me-3 bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 35px; height: 35px; font-size: 0.9rem; font-weight: bold;">06</div>
+                                        <p class="mb-0">Meningkatkan kualitas pelaku UMKM melalui program pelatihan, pembinaan, dan pendampingan.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
