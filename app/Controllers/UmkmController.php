@@ -541,8 +541,10 @@ class UmkmController extends BaseController
             ->join('subkat', 'subkat.id_subkat = produk.id_subkat', 'left')
             ->join('kategori as kat', 'kat.id_kat = subkat.id_kat', 'left')
             ->join('users', 'users.id = produk.id_user', 'left')
-
+            ->where('users.tipeakun', 1) 
             ->findAll();
+
+            
         $tabkul = $this->produkModel
             ->select('produk.*, subkat.*, kat.*, users.fullname as umkm, users.username, users.notlp')
             ->join('subkat', 'subkat.id_subkat = produk.id_subkat', 'left')
