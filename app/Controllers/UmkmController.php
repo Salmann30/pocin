@@ -537,7 +537,7 @@ class UmkmController extends BaseController
 
 
         $tab1 = $this->produkModel
-            ->select('produk.*, subkat.*, kat.*, users.fullname as umkm, users.username, users.notlp')
+            ->select('produk.*, subkat.*, kat.*, users.nama_umkm as umkm, users.username, users.notlp')
             ->join('subkat', 'subkat.id_subkat = produk.id_subkat', 'left')
             ->join('kategori as kat', 'kat.id_kat = subkat.id_kat', 'left')
             ->join('users', 'users.id = produk.id_user', 'left')

@@ -2,7 +2,6 @@
     .form-control{
         width:16rem;
     }
-/* Force override dropdown background */
 .custom-dropdown .dropdown-menu {
 	background-color: #f8f9fa !important;
 	border: 1px solid #dee2e6 !important;
@@ -14,7 +13,6 @@
 	animation: fadeInDown 0.2s ease-in-out;
 }
 
-/* Clean and force item style */
 .custom-dropdown .dropdown-menu .dropdown-item {
 	padding: 0.75rem 1.25rem !important;
 	font-weight: 500 !important;
@@ -23,13 +21,11 @@
 	transition: all 0.2s ease !important;
 }
 
-/* Hover effect */
 .custom-dropdown .dropdown-menu .dropdown-item:hover {
 	background-color: #ff6868 !important;
 	color: #fff !important;
 }
 
-/* Optional animation */
 @keyframes fadeInDown {
 	from {
 		opacity: 0;
@@ -58,7 +54,7 @@
 }
 </style>
 <div class="container-fluid fixed-top ">
-    <div class="container ">
+    <div class="container overflow-hidden">
         
     
         <nav class="navbar navbar-light bg-white navbar-expand-xl">
