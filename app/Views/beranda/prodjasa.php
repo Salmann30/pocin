@@ -4,127 +4,126 @@
 
 <style>
 	.product-card {
-		transition: transform 0.2s, box-shadow 0.2s;
-		cursor: pointer;
-		border-radius: 10px;
-		overflow: hidden;
-		height: 300px; /* Fixed height for all cards */
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		will-change: transform;
 	}
 
 	.product-card:hover {
-		transform: translateY(-5px);
-		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+		transform: scale(1.03);
+		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 	}
 
 	.product-image-container {
-		height: 200px; /* Fixed height for all image containers */
-		position: relative;
+		border-top-left-radius: 0.5rem;
+		border-top-right-radius: 0.5rem;
 		overflow: hidden;
 	}
 
-	.product-card .card-img-top {
+	.product-image-container img {
+		object-fit: cover;
 		width: 100%;
 		height: 100%;
-		object-fit: cover; /* This ensures the image covers the area without distortion */
 	}
 
-	.card-body {
-		height: 100px; /* Fixed height for all card bodies */
-		padding: 1rem;
+	.pagination {
+		background-color: transparent;
+		gap: 0.3rem;
 	}
 
-	.badge {
-		font-size: 0.7rem;
-		padding: 0.35em 0.65em;
-		border-radius: 6px;
-		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-		z-index: 1;
+	.page-item .page-link {
+		background-color: #ffffff;
+		color: var(--bs-primary);
+		border: 1px solid #dee2e6;
+		transition: all 0.2s ease-in-out;
+		width: max-content;
 	}
 
-	.card-title {
-		font-size: 1rem;
-		line-height: 1.3;
-		margin-bottom: 0;
-		height: 2.6rem; /* Fixed height for product names */
-		overflow: hidden;
-		display: -webkit-box;
-		-webkit-line-clamp: 2;
-		-webkit-box-orient: vertical;
+	.page-item .page-link:hover {
+		background-color: var(--bs-primary);
+		color: #ffffff;
+		border-color: var(--bs-primary);
 	}
 
-	.price {
-		font-size: 1.1rem;
+	.page-item.active .page-link {
+		background-color: var(--bs-primary);
+		color: #ffffff;
+		border-color: var(--bs-primary);
 	}
 
-/* Pagination container */
-.pagination {
-    background-color: transparent;
-    gap: 0.3rem;
-}
-
-/* Set default look of page links */
-.page-item .page-link {
-    background-color: #FFFFFF;
-    color: var(--bs-primary);
-    border: 1px solid #dee2e6;
-    transition: all 0.2s ease-in-out;
-}
-
-/* Hover effect on individual page links */
-.page-item .page-link:hover {
-    background-color: var(--bs-primary);
-    color: #FFFFFF;
-    border-color: var(--bs-primary);
-}
-
-/* Active page styling */
-.page-item.active .page-link {
-    background-color: var(--bs-primary);
-    color: #FFFFFF;
-    border-color: var(--bs-primary);
-}
-
-
-
-
-	@media (max-width: 991.98px) {
-		.sticky-sidebar {
-			position: static !important; /* non-sticky untuk layar kecil */
-		}
+		/* --- Carousel Modal Buttons --- */
+		.modal .carousel-control-prev,
+	.modal .carousel-control-next {
+		width: 3rem;
+		height: 3rem;
+		top: 50%;
+		transform: translateY(-50%);
+		background-color: rgba(0, 0, 0, 0.5);
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		opacity: 0.8;
+		transition: background-color 0.2s ease;
 	}
 
-	@media (min-width: 992px) {
-		.sticky-sidebar {
-			position: sticky;
-			top: 160px;
-			z-index: 1000;
-			height: fit-content;
-		}
+	.modal .carousel-control-prev:hover,
+	.modal .carousel-control-next:hover {
+		background-color: rgba(0, 0, 0, 0.7);
 	}
 
-	/* Responsive adjustments */
+	.modal .carousel-control-prev-icon,
+	.modal .carousel-control-next-icon {
+		width: 1.25rem;
+		height: 1.25rem;
+		background-size: 100% 100%;
+	}
+
+	/* Gambar dalam carousel */
+	.modal .carousel-inner img {
+		border-radius: 0.5rem;
+		object-fit: cover;
+		width: 100%;
+		height: auto;
+		max-height: 300px;
+	}
+
+	/* Tombol beli WhatsApp */
+	.btn-whatsapp {
+		background-color: #25d366;
+		color: white;
+		font-weight: 600;
+	}
+
+	.btn-whatsapp:hover {
+		background-color: #1ebd5c;
+		color: white;
+	}
+
 	@media (max-width: 767px) {
-		.product-card {
-			height: 280px;
-		}
-
 		.product-image-container {
 			height: 180px;
+		}
+
+		.product-card .text-muted {
+			font-size: 1rem;
+			font-weight: 500;
 		}
 	}
 </style>
 
+
+
+
 <!-- Produk Dan Jasa-->
-<div class="container-fluid fruite py-5 my-2" style="background-color:  #f8f9fa">
-	<div class="container py-5 my-4 " >
+<div class="container-fluid fruite py-5 my-2" style="background-color: #f8f9fa">
+	<div class="container py-5 my-4">
 		<div class="text-center mb-5">
-		<h2 class="fw-bold" style="color: #425D68; font-size: 2.5rem;">Daftar Produk & Jasa</h2>
+			<h2 class="fw-bold" style="color: #425d68; font-size: 2.5rem">Daftar Produk & Jasa</h2>
 
-		<p class="text-muted" style="font-size: 1rem;">
-			Temukan berbagai produk dan jasa berkualitas yang tersedia disini
-		</p>
+			<p class="text-muted" style="font-size: 1rem">
+				Temukan berbagai produk dan jasa berkualitas yang tersedia disini
+			</p>
 		</div>
-
 
 		<div class="row g-4">
 			<!-- Sidebar Kategori Sticky -->
@@ -178,75 +177,69 @@
 
 			<!-- Konten Produk -->
 			<div class="col-lg-10">
-				<div class="container py-5">
-					<div class="row">
-						<?php if (!empty($pesan)) : ?>
-						<div class="alert alert-warning col-md-8 mx-auto mb-4" role="alert">
-							<?= $pesan ?>
-						</div>
-						<?php endif; ?>
+	<div class="container py-5">
+		<div class="row">
+			<?php if (!empty($pesan)) : ?>
+				<div class="alert alert-warning col-md-8 mx-auto mb-4" role="alert">
+					<?= $pesan ?>
+				</div>
+			<?php endif; ?>
 
-						<div class="col-12">
-							<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-								<?php foreach ($tab1 as $pr) : ?>
-								<div class="col">
-									<div
-										class="card h-100 border-0 shadow-sm product-card hover-shadow transition"
-										role="button"
-										data-bs-toggle="modal"
-										data-bs-target="#detailProdukModal<?= $pr['id_produk'] ?>">
-										<!-- Image -->
-										<div
-											class="ratio ratio-4x3 product-image-container rounded-top overflow-hidden">
-											<img
-												src="<?= $pr['img_produk'] ? $pr['img_produk'] : base_url('img/produk/default.jpg') ?>"
-												class="img-fluid object-fit-cover w-100 h-100"
-												alt="<?= esc($pr['nama_produk']) ?>" />
-										</div>
+			<?php if (empty($tab1)) : ?>
+				<div class="alert alert-danger text-center">
+					Tidak ada produk ditemukan.
+				</div>
+			<?php endif; ?>
 
-										<!-- Content -->
-										<div
-											class="card-body text-center d-flex flex-column justify-content-between p-3">
-											<!-- Nama Produk -->
-											<h6
-												class="fw-semibold text-dark mb-1 text-truncate"
-												title="<?= $pr['nama_produk'] ?>">
-												<?= ucwords($pr['nama_produk']) ?>
-											</h6>
-
-											<!-- UMKM -->
-											<small
-												class="text-muted d-block text-truncate"
-												title="<?= $pr['nama_umkm'] ?>">
-												<?= $pr['nama_umkm'] ?? 'Nama UMKM' ?>
-											</small>
-
-											<!-- Harga -->
-											<div class="mt-2">
-												<span class="fw-bold text-primary fs-6">
-													Rp<?= number_format($pr['harga_produk'], 0, ',', '.') ?>
-												</span>
-											</div>
-										</div>
+			<div class="col-12">
+				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+					<?php foreach ($tab1 as $pr): ?>
+					<div class="col">
+					<div
+								class="card h-100 border-0 shadow-sm product-card"
+								role="button"
+								data-bs-toggle="modal"
+								data-bs-target="#detailProdukModal<?= $pr['id_produk'] ?>">
+								<div class="ratio ratio-1x1 product-image-container rounded-top overflow-hidden">
+									<img
+										src="<?= $pr['img_produk'] ?: base_url('img/produk/default.jpg') ?>"
+										class="img-fluid object-fit-cover w-100 h-100"
+										alt="<?= esc($pr['nama_produk']) ?>"
+										loading="lazy" />
+								</div>
+								<div class="card-body text-center d-flex flex-column justify-content-between p-3">
+									<h6
+										class="fw-semibold text-dark mb-1 text-truncate"
+										title="<?= $pr['nama_produk'] ?>">
+										<?= ucwords($pr['nama_produk']) ?>
+									</h6>
+									<small class="text-muted text-truncate" title="<?= $pr['umkm'] ?? 'Nama UMKM' ?>">
+										<?= $pr['umkm'] ?? 'Nama UMKM' ?>
+									</small>
+									<div class="mt-2">
+										<span class="fw-bold text-primary fs-6">
+											Rp<?= number_format($pr['harga_produk'], 0, ',', '.') ?>
+										</span>
 									</div>
 								</div>
-								<?php endforeach; ?>
 							</div>
+					</div>
+					<?php endforeach; ?>
+				</div>
 
-							
-
-							<!-- Pagination -->
-        <div class="row mt-5">
-            <div class="col-12">
-                <div class="pagination d-flex justify-content-center ">
-                                <?= $pager->links() ?>
-                </div>
-            </div>
-        </div>
+				<!-- Pagination -->
+				<div class="row mt-5">
+					<div class="col-12">
+						<div class="pagination d-flex justify-content-center">
+							<?= $pager->links() ?>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
+	</div>
+</div>
+
 		</div>
 	</div>
 </div>
@@ -255,219 +248,106 @@
 <link
 	rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-<?php foreach ($tab1 as $product) : ?>
-<div
-	class="modal fade"
-	id="detailProdukModal<?= $product['id_produk'] ?>"
-	tabindex="-1"
-	aria-labelledby="editProdukModalLabel<?= $product['id_produk'] ?>"
-	aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="editProdukModalLabel<?= $product['id_produk'] ?>">
-					Detail Produk
-				</h5>
-				<button
-					type="button"
-					class="btn btn-close"
-					data-bs-dismiss="modal"
-					aria-label="Close"></button>
-			</div>
-			<div class="modal-body">
-				<ul class="nav nav-tabs mb-3" id="tabContent">
-					<li class="nav-item">
-						<a
-							class="nav-link active"
-							id="detail-tab"
-							data-bs-toggle="tab"
-							href="#detail-<?= $product['id_produk'] ?>"
-							role="tab"
-							>Detail</a
-						>
-					</li>
-					<li class="nav-item">
-						<a
-							class="nav-link"
-							id="testimoni-tab"
-							data-bs-toggle="tab"
-							href="#testimoni-<?= $product['id_produk'] ?>"
-							role="tab"
-							>Testimoni</a
-						>
-					</li>
-				</ul>
-				<div class="tab-content">
-					<!-- Detail Produk -->
-					<div
-						class="tab-pane fade show active"
-						id="detail-<?= $product['id_produk'] ?>"
-						role="tabpanel">
-						<div class="row justify-content-center mb-2">
-							<div class="col-lg-4 col-6">
-								<!-- Carousel -->
-								<div
-									id="carouselExample<?= $product['id_produk'] ?>"
-									class="carousel slide"
-									data-bs-ride="carousel"
-									data-bs-interval="2000">
-									<div class="carousel-inner">
-										<div class="carousel-item active fruite-img">
-											<img
-												src="<?= base_url() . $product['img_produk'] ?>"
-												class="img-fluid blur-img"
-												alt=""
-												data-bs-toggle="modal"
-												data-bs-target="#fullscreenModal"
-												data-src="<?= base_url() . $product['img_produk'] ?>" />
-										</div>
-										<?php if ($product['img_produk2']) :?>
-										<div class="carousel-item fruite-img">
-											<img
-												src="<?= base_url() . $product['img_produk2'] ?>"
-												class="img-fluid blur-img"
-												alt=""
-												data-bs-toggle="modal"
-												data-bs-target="#fullscreenModal"
-												data-src="<?= base_url() . $product['img_produk2'] ?>" />
-										</div>
-										<?php endif;?>
-										<?php if ($product['img_produk3']) :?>
-										<div class="carousel-item fruite-img">
-											<img
-												src="<?= base_url() . $product['img_produk3'] ?>"
-												class="img-fluid blur-img"
-												alt=""
-												data-bs-toggle="modal"
-												data-bs-target="#fullscreenModal"
-												data-src="<?= base_url() . $product['img_produk3'] ?>" />
-										</div>
-										<?php endif;?>
-									</div>
-									<button
-										class="carousel-control-prev transparent-control"
-										type="button"
-										data-bs-target="#carouselExample<?= $product['id_produk'] ?>"
-										data-bs-slide="prev">
-										<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-										<span class="visually-hidden">Previous</span>
-									</button>
-									<button
-										class="carousel-control-next transparent-control"
-										type="button"
-										data-bs-target="#carouselExample<?= $product['id_produk'] ?>"
-										data-bs-slide="next">
-										<span class="carousel-control-next-icon" aria-hidden="true"></span>
-										<span class="visually-hidden">Next</span>
-									</button>
-								</div>
+	<?php foreach ($tab1 as $product) : ?>
+	<div class="modal fade" id="detailProdukModal<?= $product['id_produk'] ?>" tabindex="-1" aria-labelledby="editProdukModalLabel<?= $product['id_produk'] ?>" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editProdukModalLabel<?= $product['id_produk'] ?>">Detail Produk</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
 
-								<div class="col-12 text-center mt-1 text-dark" style="font-size: 10pt">
-									<strong
-										><p><?= ucwords($product['nama_produk']) ?></p></strong
-									>
-								</div>
-							</div>
+      <div class="modal-body">
+        <div class="row">
+          <!-- Carousel Image -->
+          <div class="col-md-5 text-center">
+            <div id="carouselExample<?= $product['id_produk'] ?>" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="<?= base_url() . $product['img_produk'] ?>" class="d-block w-100" alt="Produk">
+                </div>
+                <?php if ($product['img_produk2']): ?>
+                <div class="carousel-item">
+                  <img src="<?= base_url() . $product['img_produk2'] ?>" class="d-block w-100" alt="Produk 2">
+                </div>
+                <?php endif; ?>
+                <?php if ($product['img_produk3']): ?>
+                <div class="carousel-item">
+                  <img src="<?= base_url() . $product['img_produk3'] ?>" class="d-block w-100" alt="Produk 3">
+                </div>
+                <?php endif; ?>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample<?= $product['id_produk'] ?>" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExample<?= $product['id_produk'] ?>" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+              </button>
+            </div>
 
-							<div class="col-lg-8 row">
-								<div class="col-12">
-									<table class="table table-borderless mb-4" style="font-size: 9pt">
-										<tbody>
-											<tr>
-												<td class="m-0 p-0">UMKM</td>
-												<td class="m-0 p-0">&nbsp;&nbsp;</td>
-												<td class="m-0 p-0 text-dark">
-													<a href="<?= base_url('umkm/') . $product['username'] ?>"
-														><?= $product['nama_umkm']?></a
-													>
-												</td>
-											</tr>
-											<tr>
-												<td class="m-0 p-0">Kategori</td>
-												<td class="m-0 p-0">&nbsp;&nbsp;</td>
-												<td class="m-0 p-0 text-dark">
-													<?= $product['subkat'] ?>
-													(<?= $product['kategori'] ?>)
-												</td>
-											</tr>
-											<tr>
-												<td class="m-0 p-0">Harga</td>
-												<td class="m-0 p-0">&nbsp;</td>
-												<td class="m-0 p-0 text-dark">
-													Rp<?= number_format($product['harga_produk'], 0, ',', '.'); ?>
-												</td>
-											</tr>
-											<tr>
-												<td class="m-0 p-0">Stok</td>
-												<td class="m-0 p-0">&nbsp;&nbsp;</td>
-												<td class="m-0 p-0 text-dark">
-													<?= number_format($product['stok_produk'], 0, ',', '.'); ?>
-												</td>
-											</tr>
-											<tr>
-												<td class="m-0 p-0">Deskripsi</td>
-												<td class="m-0 p-0">&nbsp;&nbsp;</td>
-												<td class="m-0 p-0 text-dark"><?= ucfirst($product['ket_produk']) ?></td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
-						</div>
-					</div>
+            <h6 class="mt-3"><?= ucwords($product['nama_produk']) ?></h6>
+          </div>
 
-					<!-- Testimoni -->
-					<div class="tab-pane fade" id="testimoni-<?= $product['id_produk'] ?>" role="tabpanel">
-						<div class="row">
-							<div class="col-12">
-								<h4>Testimoni Pelanggan</h4>
-								<ul class="list-group">
-									<!-- Contoh testimoni -->
-									<?php if (!empty($product['testimoni'])): ?>
-									<?php foreach ($product['testimoni'] as $testi): ?>
-									<li class="list-group-item pt-0">
-										<div class="rating">
-											<?php
-                                                    $bintangPenuh = floor($testi['bintang']);
-                                                    $bintangSetengah = ($testi['bintang'] - $bintangPenuh) >=
-											0.5 ? 1 : 0; echo str_repeat('<i class="fas fa-star"></i>', $bintangPenuh); if
-											($bintangSetengah) { echo '<i class="fas fa-star-half-alt"></i>'; } if
-											($testi['bintang'] < 5 && $testi['bintang'] != 4.5) { $bintangKosong = 5 -
-											($bintangPenuh + $bintangSetengah); echo str_repeat('<i
-												class="far fa-star"></i
-											>', $bintangKosong); } ?>
-										</div>
-										<strong><?= $testi['nama_cus'] ?></strong>
-										<p><?= $testi['ket_testi'] ?></p>
-									</li>
-									<?php endforeach; ?>
-									<?php else: ?>
-									<li class="list-group-item pb-1">Belum ada testimoni untuk produk ini.</li>
-									<?php endif; ?>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<?php
-                if ($product['notlp']) {
-                    if (substr($product['notlp'], 0, 1) === '0') {
-                        $notlp = substr($product['notlp'], 1);
-                        $notlp = '62' . $notlp;
-                    } ?>
-				<a
-					type="button"
-					href="https://api.whatsapp.com/send/?phone=<?= $notlp ?>&text=Apakah%20produk%20<?= $product['nama_produk'] ?>%20masih%20ada%3F&type=phone_number&app_absent=0"
-					class="btn btn-success fw-semibold px-4"
-					>Beli <i class="fab fa-whatsapp fa-lg"></i
-				></a>
-				<?php } ?>
-			</div>
-		</div>
-	</div>
+          <!-- Detail Produk -->
+          <div class="col-md-7">
+            <table class="table table-sm table-borderless">
+              <tr>
+                <td>UMKM</td>
+                <td>:</td>
+                <td>
+                  <?php if (!empty($product['umkm']) && !empty($product['username'])): ?>
+                    <a href="<?= base_url('umkm/') . $product['username'] ?>">
+                      <?= $product['umkm'] ?>
+                    </a>
+                  <?php else: ?>
+                    <span class="text-muted">Nama UMKM</span>
+                  <?php endif; ?>
+                </td>
+              </tr>
+              <tr>
+                <td>Kategori</td>
+                <td>:</td>
+                <td><?= $product['subkat'] ?> (<?= $product['kategori'] ?>)</td>
+              </tr>
+              <tr>
+                <td>Harga</td>
+                <td>:</td>
+                <td><strong>Rp<?= number_format($product['harga_produk'], 0, ',', '.') ?></strong></td>
+              </tr>
+              <tr>
+                <td>Stok</td>
+                <td>:</td>
+                <td><?= number_format($product['stok_produk'], 0, ',', '.') ?></td>
+              </tr>
+              <tr>
+                <td>Deskripsi</td>
+                <td>:</td>
+                <td><?= ucfirst($product['ket_produk']) ?></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer justify-content-end">
+        <!-- Tombol WhatsApp -->
+        <?php
+        if (!empty($product['notlp'])) {
+          $notlp = $product['notlp'];
+          if (substr($notlp, 0, 1) === '0') {
+            $notlp = '62' . substr($notlp, 1);
+          }
+        ?>
+          <a href="https://api.whatsapp.com/send/?phone=<?= $notlp ?>&text=Halo,%20saya%20tertarik%20dengan%20produk%20<?= urlencode($product['nama_produk']) ?>.%20Apakah%20masih%20tersedia?" target="_blank" class="btn btn-whatsapp">
+            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+          </a>
+        <?php } ?>
+      </div>
+    </div>
+  </div>
 </div>
+
+
 <?php endforeach; ?>
 
 <!-- Modal Fullscreen Gambar -->
