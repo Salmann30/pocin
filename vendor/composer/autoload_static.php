@@ -1255,7 +1255,6 @@ class ComposerStaticInitd648ee3b65e8d352e12e15817702e7cd
         'Matrix\\Operators\\Operator' => __DIR__ . '/..' . '/markbaker/matrix/classes/src/Operators/Operator.php',
         'Matrix\\Operators\\Subtraction' => __DIR__ . '/..' . '/markbaker/matrix/classes/src/Operators/Subtraction.php',
         'MyCLabs\\Enum\\Enum' => __DIR__ . '/..' . '/myclabs/php-enum/src/Enum.php',
-        'MyCLabs\\Enum\\PHPUnit\\Comparator' => __DIR__ . '/..' . '/myclabs/php-enum/src/PHPUnit/Comparator.php',
         'Myth\\Auth\\AuthTrait' => __DIR__ . '/..' . '/myth/auth/src/AuthTrait.php',
         'Myth\\Auth\\Authentication\\Activators\\ActivatorInterface' => __DIR__ . '/..' . '/myth/auth/src/Authentication/Activators/ActivatorInterface.php',
         'Myth\\Auth\\Authentication\\Activators\\BaseActivator' => __DIR__ . '/..' . '/myth/auth/src/Authentication/Activators/BaseActivator.php',

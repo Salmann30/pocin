@@ -7,10 +7,21 @@ use CodeIgniter\Router\RouteCollection;
  */
 
 //route auth dll
-$routes->get('/login', 'AuthController::index');
-$routes->get('/forgot', 'AuthController::forgot');
-$routes->get('/reset', 'AuthController::reset');
-$routes->get('/register', 'AuthController::register');
+$routes->get('login', 'AuthController::login');
+    $routes->post('login', 'AuthController::attemptLogin');
+    $routes->get('logout', 'AuthController::logout');
+
+    $routes->get('register', 'AuthController::register');
+    $routes->post('register', 'AuthController::attemptRegister');
+
+    $routes->get('forgot', 'AuthController::forgot');
+    $routes->post('forgot', 'AuthController::attemptForgot');
+
+    $routes->get('reset-password', 'AuthController::reset');
+    $routes->post('reset-password', 'AuthController::attemptReset');
+
+    $routes->get('activate-account', 'AuthController::activateAccount');
+    $routes->get('resend-activate-account', 'AuthController::resendActivateAccount');
 
 //end
 

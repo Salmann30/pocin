@@ -1100,7 +1100,6 @@ return array(
     'Matrix\\Operators\\Operator' => $vendorDir . '/markbaker/matrix/classes/src/Operators/Operator.php',
     'Matrix\\Operators\\Subtraction' => $vendorDir . '/markbaker/matrix/classes/src/Operators/Subtraction.php',
     'MyCLabs\\Enum\\Enum' => $vendorDir . '/myclabs/php-enum/src/Enum.php',
-    'MyCLabs\\Enum\\PHPUnit\\Comparator' => $vendorDir . '/myclabs/php-enum/src/PHPUnit/Comparator.php',
     'Myth\\Auth\\AuthTrait' => $vendorDir . '/myth/auth/src/AuthTrait.php',
     'Myth\\Auth\\Authentication\\Activators\\ActivatorInterface' => $vendorDir . '/myth/auth/src/Authentication/Activators/ActivatorInterface.php',
     'Myth\\Auth\\Authentication\\Activators\\BaseActivator' => $vendorDir . '/myth/auth/src/Authentication/Activators/BaseActivator.php',
