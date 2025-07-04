@@ -59,8 +59,6 @@ $routes->post('/edit', 'UserController::editProfile', ['filter' => 'role:admin,u
 //end
 
 //route dari admin
-$routes->get('/admin/pencatatan', 'AdminController::pencatatan', ['filter' => 'role:admin']);
-
 $routes->get('/admin/dashboard', 'AdminController::index', ['filter' => 'role:admin']);
 $routes->get('/admin/dashboard/index', 'AdminController::index', ['filter' => 'role:admin']);
 

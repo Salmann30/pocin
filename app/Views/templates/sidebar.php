@@ -66,11 +66,6 @@
                 <span>Dasbor</span></a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('/admin/pencatatan') ?>">
-                <i class="fas fa-fw fa-pen"></i>
-                <span>Catat Penjualan</span></a>
-        </li>
 
         <hr class="sidebar-divider">
 
