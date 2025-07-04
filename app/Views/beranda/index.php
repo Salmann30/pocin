@@ -641,73 +641,7 @@
 <?php endforeach; ?>
 
 
-<!-- Kategori -->
-<div class="container-fluid fruite pt-4">
-	<div class="container py-0 rounded-3">
-		<div class="tab-class text-center">
-			<div class="row">
-			<div class="d-flex align-items-center justify-content-center flex-wrap gap-3 mb-4">
-			<div class="text-center">
-				<h2 class="fw-bold display-6 mt-2 mb-0">Kategori UMKM
-			</div>
-		</div>
-			</div>
-			<div class="tab-content mb-5 pb-4">
-				<div id="tab-1" class="tab-pane fade show p-0 active">
-					<div class="row g-4">
-						<div class="col-lg-12">
-							<div class="row g-4 justify-content-center">
-								<!-- <div class="tab-content mb-5">
-                                    <div id="tab-1" class="tab-pane fade show p-0 active">
-                                        <div class="row g-4">
-                                            <div class="col-lg-12">
-                                                <div class="row g-4 justify-content-center">
-                                                    <?php foreach ($kategori as $k) : ?>
-                                                        <div class="col-md-2 col-lg-2 mb-2 col-xl-2 col-6">
-                                                            <div class="rounded position-relative border border-secondary fruite-item justify-content-center">
-                                                                <a href="<?= base_url('produk?kategori=') . urlencode($k['kategori']) ?>">
-                                                                    <div class="fruite-img">
-                                                                        <img src="<?= base_url($k['img_kategori']) ?>" class="img-fluid w-100 rounded-top" alt="">
-                                                                    </div>
-                                                                    <div class="p-4 border-top-0 rounded-bottom">
-                                                                        <h4><?= $k['kategori'] ?></h4>
-                                                                        <div class="d-flex justify-content-center flex-lg-wrap">
-                                                                            <a href="<?= base_url('produk?kategori=') . urlencode($k['kategori']) ?>" class="btn border border-secondary rounded-pill px-3 text-primary">Lihat</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    <?php endforeach; ?>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> -->
-								<?php foreach ($kategori as $k) : ?>
-								<div class="col-md-4 col-lg-3 col-xl-3 col-6 mb-4">
-									<a
-										href="<?= base_url('produk?kategori=') . urlencode($k['kategori']) ?>"
-										style="text-decoration: none">
-										<div
-											class="category-card"
-											style="background-image: url('<?= base_url($k['img_kategori']) ?>')">
-											<div class="category-name bg-white"><?= $k['kategori'] ?></div>
-										</div>
-									</a>
-								</div>
-								<?php endforeach; ?>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- End Kategori -->
 
-<!-- UMKM Banner Section -->
 <div class="container-fluid banner pb-5">
 	<div class="container pb-5 position-relative">
 		<!-- Section Heading -->
@@ -717,27 +651,24 @@
 			</div>
 		</div>
 
-		<!-- Desktop Carousel (3 UMKM per slide) -->
-		<div
-			id="umkmCarouselDesktop"
-			class="carousel slide d-none d-md-block position-relative"
-			data-bs-ride="carousel">
-			<div class="carousel-inner">
-				<?php foreach (array_chunk($q_kul, 3) as $i =>
-				$umkmGroup): ?>
-				<div class="carousel-item <?= $i === 0 ? 'active' : '' ?>">
-					<div class="row justify-content-center">
-						<?php foreach ($umkmGroup as $k): ?>
+<!-- Desktop Carousel (3 UMKM per slide) -->
+<div
+	id="umkmCarouselDesktop"
+	class="carousel slide d-none d-md-block position-relative"
+	data-bs-ride="carousel">
+	<div class="carousel-inner">
+		<?php foreach (array_chunk($q_kul, 3) as $i => $umkmGroup): ?>
+			<div class="carousel-item <?= $i === 0 ? 'active' : '' ?>">
+				<div class="row justify-content-center">
+					<?php foreach ($umkmGroup as $k): ?>
 						<div class="col-md-4 mb-3">
-							<a
-								href="<?= base_url('umkm/' . urlencode($k['username'])) ?>"
-								class="text-decoration-none">
+							<a href="<?= base_url('umkm/' . urlencode($k['username'])) ?>" class="text-decoration-none">
 								<div
 									class="umkm-card position-relative rounded overflow-hidden"
 									style="
 										width: 100%;
 										padding-top: 100%;
-										background-image: url('<?= base_url($k['user_img']) ?>');
+										background-image: url('<?= base_url($k['user_img'] ?: 'default.png') ?>');
 										background-size: cover;
 										background-position: center;
 										box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
@@ -747,58 +678,55 @@
 											<?= htmlentities($k['nama_umkm'] ?? 'Brand UMKM') ?>
 										</h5>
 										<p class="mb-0" style="font-size: 0.9rem">
-											<?= htmlentities(explode(' ', trim($k['fullname'] ?? 'Nama Pemilik'))[0]) ?>
+											<?= htmlentities(explode(' ', trim($k['fullname'] ?? 'Pemilik'))[0]) ?>
 										</p>
 									</div>
 								</div>
 							</a>
 						</div>
-						<?php endforeach ?>
-					</div>
+					<?php endforeach ?>
 				</div>
-				<?php endforeach ?>
 			</div>
+		<?php endforeach ?>
+	</div>
 
-			<!-- Carousel Controls for Desktop -->
-			<button
-				class="btn btn-dark rounded-circle prev-btn position-absolute top-50 start-0 translate-middle-y"
-				type="button"
-				data-bs-target="#umkmCarouselDesktop"
-				data-bs-slide="prev"
-				style="width: 50px; height: 50px; font-size: 20px">
-				<i class="bi bi-chevron-left" style="color: black"></i>
-			</button>
-			<button
-				class="btn btn-dark rounded-circle next-btn position-absolute top-50 end-0 translate-middle-y"
-				type="button"
-				data-bs-target="#umkmCarouselDesktop"
-				data-bs-slide="next"
-				style="width: 50px; height: 50px; font-size: 20px">
-				<i class="bi bi-chevron-right" style="color: black"></i>
-			</button>
-		</div>
+	<!-- Carousel Controls for Desktop -->
+	<button
+		class="btn btn-dark rounded-circle prev-btn position-absolute top-50 start-0 translate-middle-y"
+		type="button"
+		data-bs-target="#umkmCarouselDesktop"
+		data-bs-slide="prev"
+		style="width: 50px; height: 50px; font-size: 20px">
+		<i class="bi bi-chevron-left" style="color: black"></i>
+	</button>
+	<button
+		class="btn btn-dark rounded-circle next-btn position-absolute top-50 end-0 translate-middle-y"
+		type="button"
+		data-bs-target="#umkmCarouselDesktop"
+		data-bs-slide="next"
+		style="width: 50px; height: 50px; font-size: 20px">
+		<i class="bi bi-chevron-right" style="color: black"></i>
+	</button>
+</div>
 
-		<!-- Mobile Carousel (1 UMKM per slide) -->
-		<div
-			id="umkmCarouselMobile"
-			class="carousel slide d-md-none position-relative"
-			data-bs-ride="carousel">
-			<div class="carousel-inner">
-				<?php foreach (array_chunk($q_kul, 1) as $i =>
-				$umkmGroup): ?>
-				<div class="carousel-item <?= $i === 0 ? 'active' : '' ?>">
-					<div class="row justify-content-center">
-						<?php foreach ($umkmGroup as $k): ?>
+<!-- Mobile Carousel (1 UMKM per slide) -->
+<div
+	id="umkmCarouselMobile"
+	class="carousel slide d-md-none position-relative"
+	data-bs-ride="carousel">
+	<div class="carousel-inner">
+		<?php foreach (array_chunk($q_kul, 1) as $i => $umkmGroup): ?>
+			<div class="carousel-item <?= $i === 0 ? 'active' : '' ?>">
+				<div class="row justify-content-center">
+					<?php foreach ($umkmGroup as $k): ?>
 						<div class="col-12 mb-3">
-							<a
-								href="<?= base_url('umkm/' . urlencode($k['username'])) ?>"
-								class="text-decoration-none">
+							<a href="<?= base_url('umkm/' . urlencode($k['username'])) ?>" class="text-decoration-none">
 								<div
 									class="umkm-card position-relative rounded overflow-hidden"
 									style="
 										width: 100%;
 										padding-top: 100%;
-										background-image: url('<?= base_url($k['user_img']) ?>');
+										background-image: url('<?= base_url($k['user_img'] ?: 'default.png') ?>');
 										background-size: cover;
 										background-position: center;
 										box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
@@ -808,36 +736,37 @@
 											<?= htmlentities($k['nama_umkm'] ?? 'Brand UMKM') ?>
 										</h5>
 										<p class="mb-0" style="font-size: 0.9rem">
-											<?= htmlentities(explode(' ', trim($k['fullname'] ?? 'Nama Pemilik'))[0]) ?>
+											<?= htmlentities(explode(' ', trim($k['fullname'] ?? 'Pemilik'))[0]) ?>
 										</p>
 									</div>
 								</div>
 							</a>
 						</div>
-						<?php endforeach ?>
-					</div>
+					<?php endforeach ?>
 				</div>
-				<?php endforeach ?>
 			</div>
+		<?php endforeach ?>
+	</div>
 
-			<!-- Carousel Controls for Mobile -->
-			<button
-				class="btn btn-dark rounded-circle prev-btn position-absolute top-50 start-0 translate-middle-y"
-				type="button"
-				data-bs-target="#umkmCarouselMobile"
-				data-bs-slide="prev"
-				style="width: 50px; height: 50px; font-size: 20px">
-				<i class="bi bi-chevron-left" style="color: black"></i>
-			</button>
-			<button
-				class="btn btn-dark rounded-circle next-btn position-absolute top-50 end-0 translate-middle-y"
-				type="button"
-				data-bs-target="#umkmCarouselMobile"
-				data-bs-slide="next"
-				style="width: 50px; height: 50px; font-size: 20px">
-				<i class="bi bi-chevron-right" style="color: black"></i>
-			</button>
-		</div>
+	<!-- Carousel Controls for Mobile -->
+	<button
+		class="btn btn-dark rounded-circle prev-btn position-absolute top-50 start-0 translate-middle-y"
+		type="button"
+		data-bs-target="#umkmCarouselMobile"
+		data-bs-slide="prev"
+		style="width: 50px; height: 50px; font-size: 20px">
+		<i class="bi bi-chevron-left" style="color: black"></i>
+	</button>
+	<button
+		class="btn btn-dark rounded-circle next-btn position-absolute top-50 end-0 translate-middle-y"
+		type="button"
+		data-bs-target="#umkmCarouselMobile"
+		data-bs-slide="next"
+		style="width: 50px; height: 50px; font-size: 20px">
+		<i class="bi bi-chevron-right" style="color: black"></i>
+	</button>
+</div>
+
 
 		<!-- CTA Button -->
 		<div class="tab-class text-center pt-2 mt-1">

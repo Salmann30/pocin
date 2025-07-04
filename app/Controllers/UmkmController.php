@@ -412,7 +412,7 @@ class UmkmController extends BaseController
             $img = Image::make($gambar1->getRealPath())->resize(800, 600, function ($constraint) {
                 $constraint->aspectRatio();
                 $constraint->upsize();
-            })->encode($ext, 75); // Mengatur kualitas ke 75 untuk kompresi
+            })->encode($ext, 95); // Mengatur kualitas ke 95 untuk kompresi
 
             $img->save('img/produk/' . $newName);
         } else {
@@ -442,7 +442,7 @@ class UmkmController extends BaseController
             $img = Image::make($gambar2->getRealPath())->resize(800, 600, function ($constraint) {
                 $constraint->aspectRatio();
                 $constraint->upsize();
-            })->encode($ext, 75);
+            })->encode($ext, 95);
 
             $img->save('img/produk/' . $newName);
         } else {
@@ -472,7 +472,7 @@ class UmkmController extends BaseController
             $img = Image::make($gambar3->getRealPath())->resize(800, 600, function ($constraint) {
                 $constraint->aspectRatio();
                 $constraint->upsize();
-            })->encode($ext, 75);
+            })->encode($ext, 95);
 
             $img->save('img/produk/' . $newName);
         } else {
@@ -544,7 +544,7 @@ class UmkmController extends BaseController
             ->where('users.tipeakun', 1) 
             ->findAll();
 
-            
+
         $tabkul = $this->produkModel
             ->select('produk.*, subkat.*, kat.*, users.fullname as umkm, users.username, users.notlp')
             ->join('subkat', 'subkat.id_subkat = produk.id_subkat', 'left')
@@ -554,21 +554,14 @@ class UmkmController extends BaseController
             ->findAll();
 
         
-        $qq = $this->userModel
-            ->distinct()
-            ->select('users.fullname, users.username, users.nama_umkm, users.user_img, users.notlp, users.id')
-            ->join('produk', 'users.id = produk.id_user')
-            ->join('subkat', 'produk.id_subkat = subkat.id_subkat')
-            ->orderBy('RAND()') // Memanggil data secara acak
-            ->limit(10)
-            ->get()
-            ->getResultArray();
-        $kategori = $this->kategoriModel->findAll();
-        $gambarList = $this->gambarModel
-        ->orderBy('RAND()') // Mengacak hasil query
-        ->limit(3)          // Membatasi jumlah hasil menjadi 3
-        ->findAll();
+            $qq = $this->userModel
+    ->select('fullname, username, nama_umkm, user_img, notlp, id')
+    ->where('tipeakun', 1) // Hanya UMKM terverifikasi
+    ->orderBy('RAND()')
+    ->limit(10)
+    ->findAll();
 
+   
         $banners = $this->bannerModel->findAll();;
 
         $allTestimoni = $this->testiModel->findAll();
@@ -579,9 +572,7 @@ class UmkmController extends BaseController
             'kerajinan' => $kerajinan,
             'tab1' => $tab1,
             'tabkl' => $tabkul,
-            'kategori' => $kategori,
             'title' => 'Beranda',
-            'gambarList' => $gambarList,
             'q_kul' => $qq,
             'banners' => $banners,
             'allTestimoni' => $allTestimoni
