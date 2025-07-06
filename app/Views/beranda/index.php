@@ -3,28 +3,6 @@
 <?= $this->section('page-Content'); ?>
 
 <style>
-	.green-circle {
-		position: absolute;
-		inset: 0;
-		background-color: #22c55e;
-		border-radius: 9999px;
-		transform: scale(0.9);
-		z-index: 0;
-	}
-
-	.spicy-tag {
-		position: absolute;
-		top: 6rem;
-		right: 80%;
-		transform: translateX(50%);
-		background-color: white;
-		padding: 0.25rem 1rem;
-		border-radius: 9999px;
-		box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-		display: flex;
-		align-items: center;
-		white-space: nowrap;
-	}
 
 	.food-cards {
 		position: absolute;
@@ -196,10 +174,6 @@
 		right: -3%;
 	}
 
-	.container,
-	.container-fluid {
-		overflow-x: hidden;
-	}
 
 	/* --- Carousel Modal Buttons --- */
 	.modal .carousel-control-prev,
