@@ -887,8 +887,25 @@ public function deletePic($id) {
     return redirect()->to('/admin/produk/testi/' . $id_produk)->with('message', 'Testimoni berhasil diperbarui');
 }
 
+public function deleteTesti($id)
+{
+    $testi = $this->testiModel->find($id);
+
+    if (!$testi) {
+        throw new \CodeIgniter\Exceptions\PageNotFoundException("Testimoni tidak ditemukan.");
+    }
+
+    $id_produk = $testi['id_produk'];
+
+    $this->testiModel->delete($id);
+
+    return redirect()->to('/admin/produk/testi/' . $id_produk)->with('message', 'Testimoni berhasil dihapus');
+}
+
+
 
 }
+
 
 
 

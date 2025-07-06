@@ -88,6 +88,7 @@ $routes->get('/admin/katalog/deleteProduk/(:num)', 'AdminController::deletePro/$
 $routes->get('/admin/produk/testi/(:num)', 'AdminController::produkTesti/$1', ['filter' => 'role:admin']);
 $routes->post('/admin/produk/testiadd/(:num)', 'AdminController::addTesti/$1', ['filter' => 'role:admin']);
 $routes->post('/admin/produk/testiupdate/(:num)', 'AdminController::updateTesti/$1', ['filter' => 'role:admin']);
+$routes->get('/admin/produk/testidelete/(:num)', 'AdminController::deleteTesti/$1', ['filter' => 'role:admin']);
 
 $routes->get('/admin/gambar/delete(:num)', 'AdminController::deletePic/$1', ['filter' => 'role:admin']);
 

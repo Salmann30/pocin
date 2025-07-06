@@ -61,9 +61,9 @@
 											<i class="fas fa-edit"></i>
 										</a>
 										<a
-											href="#"
+											href="/admin/produk/testidelete/<?= $t->id_testi ?>"
 											class="btn btn-danger btn-sm"
-											onclick="return confirm('Yakin ingin menghapus?')">
+											onclick="return confirm('Yakin ingin menghapus testimoni ini?')">
 											<i class="fas fa-trash-alt"></i>
 										</a>
 									</td>
@@ -110,6 +110,7 @@
 						<option value="5" <?="$t-">bintang == 5 ? 'selected' : '' ?>>⭐⭐⭐⭐⭐</option>
 					</select>
 				</div>
+
 				<div class="mb-3">
 					<label class="form-label">Keterangan</label>
 					<input
