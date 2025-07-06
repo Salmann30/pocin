@@ -189,7 +189,7 @@
 
             <div class="modal fade" id="deleteModal<?= $b['id'] ?>" tabindex="-1" aria-labelledby="deleteModalLabel<?= $b['id'] ?>" aria-hidden="true">
                 <div class="modal-dialog d-flex justify-content-center">
-                    <form action="/admin/banner/delete/<?= $b['id'] ?>" method="post">
+                    <form action="/admin/banner/delete/<?= $b['id'] ?>" method="delete">
                         <?= csrf_field() ?>
                         <input type="hidden" name="_method" value="DELETE">
                         <div class="modal-content">
