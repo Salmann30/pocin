@@ -304,7 +304,7 @@ class UmkmController extends BaseController
             'id_subkat' => $this->request->getPost('Subkat'),
             'id_user' => user()->id,
             'nama_produk' => $this->request->getPost('Nama'),
-            'harga_jual' => str_replace('.','',$this->request->getPost('hrg')),
+            'harga_produk' => str_replace('.','',$this->request->getPost('hrg')),
             'stok_produk' => $this->request->getPost('Stok'),
             'ket_produk' => $this->request->getPost('Ket'),
         ];

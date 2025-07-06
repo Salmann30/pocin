@@ -115,21 +115,10 @@
             Dasbor
         </div>
 
-        <!-- Nav Item - Profile Saya -->
-        <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('/umkm/beranda') ?>">
-            <i class="fas fa-fw fa-home"></i>
-                <span>Beranda</span></a>
-        </li>
         <li class="nav-item">
             <a class="nav-link" href="<?= base_url('/umkm/produk/index') ?>">
                 <i class="fas fa-fw fa-box"></i>
                 <span>Produk</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('/umkm/catpen') ?>">
-            <i class="fas fa-fw fa-file-invoice-dollar"></i>
-                <span>Catatan Penjualan</span></a>
         </li>
 
 

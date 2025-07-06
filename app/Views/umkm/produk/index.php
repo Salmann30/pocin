@@ -120,7 +120,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label mb-1">Harga</label>
-                                <input type="text" id="Harga" name="Harga" class="form-control" placeholder="Masukkan harga Produk" required>
+                                <input type="text" id="hrg" name="hrg" class="form-control harga" placeholder="Masukkan harga Produk" required >
                                   <small class="text-muted">*Cukup angka saja!</small>
                             </div>
                             <div class="mb-3">
@@ -220,7 +220,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label mb-1">Harga</label>
-                                    <input type="text" id="Harga" name="Harga" class="form-control custom-input" value="<?= $product['harga_produk']; ?>">
+                                    <input type="text" id="Harga" name="Harga" class="form-control custom-input harga" value="<?= $product['harga_produk']; ?>" >
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label mb-1">Stok</label>
@@ -273,6 +273,13 @@
         });
 
 
+    });
+    const hargaInputs = document.querySelectorAll('.harga');
+
+    hargaInputs.forEach(function(input) {
+    input.addEventListener('input', function () {
+        this.value = this.value.replace(/[^0-9]/g, '');
+    });
     });
 </script>
 <!-- /.container-fluid -->
