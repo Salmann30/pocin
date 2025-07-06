@@ -688,7 +688,7 @@ class UmkmController extends BaseController
             ->join('users', 'users.id = produk.id_user', 'left')
             ->where('users.username', $username)
 
-            ->find();
+            ->findAll();
         foreach ($tab1 as &$product) {
                     $product['testimoni'] = $this->testiModel
                         ->where('id_produk', $product['id_produk'])
@@ -733,7 +733,7 @@ class UmkmController extends BaseController
     {
 
         return view('beranda/tentang', [
-            'title' => 'Tentang UMKM'
+            'title' => 'Tentang UMKM '
         ]);
     }
 }

@@ -853,36 +853,40 @@ public function deletePic($id) {
         return redirect()->to('/admin/produk/testi/'.$data['id_produk'])->with('message', 'Testimoni berhasil ditambahkan');
     }
     public function updateTesti($id)
-    {
-        // Memvalidasi inputan
-        if (!$this->validate([
-            
-            'nama_cus' => 'required',
-            'ket_testi' => 'required',
-            'tanggal_testi' => 'required',
-            'bintang' => 'required|numeric',
-        ])) {
-            // Jika validasi gagal, kembalikan ke halaman sebelumnya dengan error
-            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
-        }
-    
-        // Ambil data dari form
-        $data = [
-            'id_produk' => $id,
-            'nama_cus' => $this->request->getPost('nama_cus'),
-            'bintang' => $this->request->getPost('bintang'),
-            'tanggal_testi' => $this->request->getPost('tanggal_testi'),
-            'ket_testi' => $this->request->getPost('ket_testi'),
-        ];
-        
-        var_dump($data);
-    
-        // Simpan data testimoni ke database
-        $this->testiModel->update($data);
-    
-        // Redirect setelah berhasil menambah testimoni
-        return redirect()->to('/admin/produk/testi/'.$data['id_produk'])->with('message', 'Testimoni berhasil ditambahkan');
+{
+    // Validasi input
+    if (!$this->validate([
+        'nama_cus' => 'required',
+        'ket_testi' => 'required',
+        'tanggal_testi' => 'required',
+        'bintang' => 'required|numeric',
+    ])) {
+        return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
     }
+
+    // Ambil data dari form
+    $data = [
+        'nama_cus' => $this->request->getPost('nama_cus'),
+        'bintang' => $this->request->getPost('bintang'),
+        'tanggal_testi' => $this->request->getPost('tanggal_testi'),
+        'ket_testi' => $this->request->getPost('ket_testi'),
+    ];
+
+    // Dapatkan id_produk agar bisa redirect ke detail produk yang tepat
+    $testi = $this->testiModel->find($id);
+    if (!$testi) {
+        throw new \CodeIgniter\Exceptions\PageNotFoundException("Testimoni tidak ditemukan.");
+    }
+
+    $id_produk = $testi['id_produk'];
+
+    // Update testimoni
+    $this->testiModel->update($id, $data);
+
+    // Redirect dengan pesan sukses
+    return redirect()->to('/admin/produk/testi/' . $id_produk)->with('message', 'Testimoni berhasil diperbarui');
+}
+
 
 }
 

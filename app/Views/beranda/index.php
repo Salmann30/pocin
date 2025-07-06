@@ -473,8 +473,8 @@
 <link
 	rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-<?php foreach ($tab1 as $product) : ?>
-	<div class="modal fade" id="detailProdukModal<?= $product['id_produk'] ?>" tabindex="-1" aria-labelledby="editProdukModalLabel<?= $product['id_produk'] ?>" aria-hidden="true">
+	<?php foreach ($tab1 as $product) : ?>
+<div class="modal fade" id="detailProdukModal<?= $product['id_produk'] ?>" tabindex="-1" aria-labelledby="editProdukModalLabel<?= $product['id_produk'] ?>" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -483,79 +483,125 @@
       </div>
 
       <div class="modal-body">
-        <div class="row">
-          <!-- Carousel Image -->
-          <div class="col-md-5 text-center">
-            <div id="carouselExample<?= $product['id_produk'] ?>" class="carousel slide" data-bs-ride="carousel">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img src="<?= base_url() . $product['img_produk'] ?>" class="d-block w-100" alt="Produk">
-                </div>
-                <?php if ($product['img_produk2']): ?>
-                <div class="carousel-item">
-                  <img src="<?= base_url() . $product['img_produk2'] ?>" class="d-block w-100" alt="Produk 2">
-                </div>
-                <?php endif; ?>
-                <?php if ($product['img_produk3']): ?>
-                <div class="carousel-item">
-                  <img src="<?= base_url() . $product['img_produk3'] ?>" class="d-block w-100" alt="Produk 3">
-                </div>
-                <?php endif; ?>
-              </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample<?= $product['id_produk'] ?>" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExample<?= $product['id_produk'] ?>" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-              </button>
-            </div>
+        <!-- Tab Navigasi -->
+        <ul class="nav nav-tabs" id="produkTab<?= $product['id_produk'] ?>" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="detail-tab-<?= $product['id_produk'] ?>" data-bs-toggle="tab" data-bs-target="#detail-<?= $product['id_produk'] ?>" type="button" role="tab" aria-controls="detail-<?= $product['id_produk'] ?>" aria-selected="true">Detail</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="testimoni-tab-<?= $product['id_produk'] ?>" data-bs-toggle="tab" data-bs-target="#testimoni-<?= $product['id_produk'] ?>" type="button" role="tab" aria-controls="testimoni-<?= $product['id_produk'] ?>" aria-selected="false">Komentar</button>
+          </li>
+        </ul>
 
-            <h6 class="mt-3"><?= ucwords($product['nama_produk']) ?></h6>
+        <div class="tab-content pt-3">
+          <!-- Tab Detail Produk -->
+          <div class="tab-pane fade show active" id="detail-<?= $product['id_produk'] ?>" role="tabpanel" aria-labelledby="detail-tab-<?= $product['id_produk'] ?>">
+            <div class="row">
+              <!-- Carousel Image -->
+              <div class="col-md-5 text-center">
+                <div id="carouselExample<?= $product['id_produk'] ?>" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="<?= base_url() . $product['img_produk'] ?>" class="d-block w-100" alt="Produk">
+                    </div>
+                    <?php if ($product['img_produk2']): ?>
+                    <div class="carousel-item">
+                      <img src="<?= base_url() . $product['img_produk2'] ?>" class="d-block w-100" alt="Produk 2">
+                    </div>
+                    <?php endif; ?>
+                    <?php if ($product['img_produk3']): ?>
+                    <div class="carousel-item">
+                      <img src="<?= base_url() . $product['img_produk3'] ?>" class="d-block w-100" alt="Produk 3">
+                    </div>
+                    <?php endif; ?>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample<?= $product['id_produk'] ?>" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample<?= $product['id_produk'] ?>" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                  </button>
+                </div>
+                <h6 class="mt-3"><?= ucwords($product['nama_produk']) ?></h6>
+              </div>
+
+              <!-- Detail Produk -->
+              <div class="col-md-7">
+                <table class="table table-sm table-borderless">
+                  <tr>
+                    <td>UMKM</td>
+                    <td>:</td>
+                    <td>
+                      <?php if (!empty($product['umkm']) && !empty($product['username'])): ?>
+                      <a href="<?= base_url('umkm/') . $product['username'] ?>">
+                        <?= $product['umkm'] ?>
+                      </a>
+                      <?php else: ?>
+                      <span class="text-muted">Nama UMKM</span>
+                      <?php endif; ?>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Kategori</td>
+                    <td>:</td>
+                    <td><?= $product['subkat'] ?> (<?= $product['kategori'] ?>)</td>
+                  </tr>
+                  <tr>
+                    <td>Harga</td>
+                    <td>:</td>
+                    <td><strong>Rp<?= number_format($product['harga_produk'], 0, ',', '.') ?></strong></td>
+                  </tr>
+                  <tr>
+                    <td>Stok</td>
+                    <td>:</td>
+                    <td><?= number_format($product['stok_produk'], 0, ',', '.') ?></td>
+                  </tr>
+                  <tr>
+                    <td>Deskripsi</td>
+                    <td>:</td>
+                    <td><?= ucfirst($product['ket_produk']) ?></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
           </div>
 
-          <!-- Detail Produk -->
-          <div class="col-md-7">
-            <table class="table table-sm table-borderless">
-              <tr>
-                <td>UMKM</td>
-                <td>:</td>
-                <td>
-                  <?php if (!empty($product['umkm']) && !empty($product['username'])): ?>
-                    <a href="<?= base_url('umkm/') . $product['username'] ?>">
-                      <?= $product['umkm'] ?>
-                    </a>
+          <!-- Tab Testimoni -->
+          <div class="tab-pane fade" id="testimoni-<?= $product['id_produk'] ?>" role="tabpanel" aria-labelledby="testimoni-tab-<?= $product['id_produk'] ?>">
+            <div class="row">
+              <div class="col-12">
+                <h4>Testimoni Pelanggan</h4>
+                <ul class="list-group">
+                  <?php if (!empty($product['testimoni'])): ?>
+                  <?php foreach ($product['testimoni'] as $testi): ?>
+                  <li class="list-group-item pt-0">
+                    <div class="rating">
+                      <?php
+                        $bintangPenuh = floor($testi['bintang']);
+                        $bintangSetengah = ($testi['bintang'] - $bintangPenuh) >= 0.5 ? 1 : 0;
+                        echo str_repeat('<i class="fas fa-star text-warning"></i>', $bintangPenuh);
+                        if ($bintangSetengah) echo '<i class="fas fa-star-half-alt text-warning"></i>';
+                        if ($testi['bintang'] < 5 && $testi['bintang'] != 4.5) {
+                          $bintangKosong = 5 - ($bintangPenuh + $bintangSetengah);
+                          echo str_repeat('<i class="far fa-star text-warning"></i>', $bintangKosong);
+                        }
+                      ?>
+                    </div>
+                    <strong><?= $testi['nama_cus'] ?></strong>
+                    <p><?= $testi['ket_testi'] ?></p>
+                  </li>
+                  <?php endforeach; ?>
                   <?php else: ?>
-                    <span class="text-muted">Nama UMKM</span>
+                  <li class="list-group-item pb-1">Belum ada testimoni untuk produk ini.</li>
                   <?php endif; ?>
-                </td>
-              </tr>
-              <tr>
-                <td>Kategori</td>
-                <td>:</td>
-                <td><?= $product['subkat'] ?> (<?= $product['kategori'] ?>)</td>
-              </tr>
-              <tr>
-                <td>Harga</td>
-                <td>:</td>
-                <td><strong>Rp<?= number_format($product['harga_produk'], 0, ',', '.') ?></strong></td>
-              </tr>
-              <tr>
-                <td>Stok</td>
-                <td>:</td>
-                <td><?= number_format($product['stok_produk'], 0, ',', '.') ?></td>
-              </tr>
-              <tr>
-                <td>Deskripsi</td>
-                <td>:</td>
-                <td><?= ucfirst($product['ket_produk']) ?></td>
-              </tr>
-            </table>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="modal-footer justify-content-end">
-        <!-- Tombol WhatsApp -->
         <?php
         if (!empty($product['notlp'])) {
           $notlp = $product['notlp'];
@@ -563,17 +609,16 @@
             $notlp = '62' . substr($notlp, 1);
           }
         ?>
-          <a href="https://api.whatsapp.com/send/?phone=<?= $notlp ?>&text=Halo,%20saya%20tertarik%20dengan%20produk%20<?= urlencode($product['nama_produk']) ?>.%20Apakah%20masih%20tersedia?" target="_blank" class="btn btn-whatsapp">
-            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
-          </a>
+        <a href="https://api.whatsapp.com/send/?phone=<?= $notlp ?>&text=Halo,%20saya%20tertarik%20dengan%20produk%20<?= urlencode($product['nama_produk']) ?>.%20Apakah%20masih%20tersedia?" target="_blank" class="btn btn-whatsapp">
+          <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+        </a>
         <?php } ?>
       </div>
     </div>
   </div>
 </div>
-
-
 <?php endforeach; ?>
+
 
 <div class="container-fluid banner pb-5">
 	<div class="container pb-5 position-relative">
