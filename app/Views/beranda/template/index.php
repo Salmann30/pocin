@@ -82,7 +82,7 @@
             <!-- Kontak Section -->
             <div class="col-lg-4 col-md-6 ">
                 <h4 class="text-light mb-3">Kontak</h4>
-                <p class="text-light">Jl. Raya Mekarsari, Mekarsari, Kec. Cimanggis, Kota Depok, Jawa Barat 16452</p>
+                <p class="text-light">Pondok Cina, Kecamatan Beji, Kota Depok, Jawa Barat 16424</p>
                 <p class="text-light">Email: mekariumkm@gmail.com</p>
                 <p class="text-light">Telpon: (021) 78881112 Ext. 110</p>
                 <div class="d-flex flex-row justify-content-start pt-3">
