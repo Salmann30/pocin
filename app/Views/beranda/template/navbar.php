@@ -79,7 +79,7 @@
 				data-bs-target="#navbarCollapse">
 				<span class="fa fa-bars text-primary"></span>
 			</button>
-			<div class="collapse navbar-collapse bg-white rounded fw-bold" id="navbarCollapse">
+			<div class="collapse navbar-collapse bg-white fw-bold" id="navbarCollapse">
 				<div class="navbar-nav mx-auto">
 					<a href="<?= base_url('/'); ?>" class="nav-item nav-link">Beranda</a>
 					<a href="<?= base_url('produk'); ?>" class="nav-item nav-link">Produk &amp; Jasa</a>
