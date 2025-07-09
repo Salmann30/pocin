@@ -31,7 +31,7 @@
 
                     <div class="dropdown">
                         <button data-bs-toggle="modal" data-bs-target="#addModal" class="ms-auto btn btn-sm btn-success"><i class="fas fa-plus-square"></i></button>
-                        <button class="btn btn-sm btn-outline-primary" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn btn-sm btn-outline-success" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                           Import Excel
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
