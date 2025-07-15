@@ -119,11 +119,11 @@
 											name="alamat"
 											id="alamat"
 											minlength="50"
-											maxlength="75"
+											maxlength="200"
 											required>
 <?= $user['alamat'] ?></textarea
 										>
-										<small id="alamatCount" class="form-text text-muted">0/75 characters</small>
+										<small id="alamatCount" class="form-text text-muted">0/200 characters</small>
 									</div>
 								</div>
 								<div class="mb-3 row">
@@ -155,7 +155,7 @@
 
 		alamatInput.addEventListener("input", function () {
 			const currentLength = alamatInput.value.length;
-			alamatCount.textContent = currentLength + "/75 characters";
+			alamatCount.textContent = currentLength + "/200 characters";
 		});
 	});
 </script>
