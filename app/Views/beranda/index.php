@@ -783,7 +783,7 @@
 									">
 									<div class="umkm-card-overlay position-absolute bottom-0 start-0 end-0 p-3">
 										<h5 class="mb-1 fw-bold" style="font-size: 1rem">
-											<?= htmlentities($k['umkm'] ?? 'Brand UMKM') ?>
+											<?= htmlentities($k['nama_umkm'] ?? 'Brand UMKM') ?>
 										</h5>
 										<p class="mb-0" style="font-size: 0.9rem">
 											<?= htmlentities(explode(' ', trim($k['fullname'] ?? 'Pemilik'))[0]) ?>

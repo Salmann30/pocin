@@ -213,8 +213,8 @@
 										title="<?= $pr['nama_produk'] ?>">
 										<?= ucwords($pr['nama_produk']) ?>
 									</h6>
-									<small class="text-muted text-truncate" title="<?= $pr['umkm'] ?? 'Nama UMKM' ?>">
-										<?= $pr['umkm'] ?? 'Nama UMKM' ?>
+									<small class="text-muted text-truncate" title="<?= $pr['nama_umkm'] ?? 'Nama UMKM' ?>">
+										<?= $pr['nama_umkm'] ?? 'Nama UMKM' ?>
 									</small>
 									<div class="mt-2">
 										<span class="fw-bold text-primary fs-6">
@@ -297,7 +297,7 @@
                 <td>
                   <?php if (!empty($product['umkm']) && !empty($product['username'])): ?>
                     <a href="<?= base_url('umkm/') . $product['username'] ?>">
-                      <?= $product['umkm'] ?>
+                      <?= $product['nama_umkm'] ?>
                     </a>
                   <?php else: ?>
                     <span class="text-muted">Nama UMKM</span>
