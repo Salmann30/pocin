@@ -70,7 +70,10 @@
 <div class="container-fluid fixed-top">
 	<div class="container">
 		<nav class="navbar navbar-light bg-white navbar-expand-xl">
-			<img src="<?= base_url('img/KatalogLogo.png') ?>" alt="" class="img-fluid img-logo p-2" />
+			<a href="<?= base_url('/') ?>">
+	<img src="<?= base_url('img/KatalogLogo.png') ?>" alt="" class="img-fluid img-logo p-2" />
+</a>
+
 
 			<button
 				class="navbar-toggler py-2 px-3"
