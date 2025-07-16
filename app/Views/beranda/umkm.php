@@ -221,6 +221,21 @@
 		pointer-events: none;
 		z-index: 1;
 	}
+
+		/* Special styling for Last pagination button */
+.pagination li a[aria-label="Last"] {
+  border-color: #dc3545 !important;
+  color: var(--bs-primary);
+  border-width: 2px;
+  border-radius: 0.375rem;
+}
+
+.pagination li a[aria-label="Last"]:hover {
+  background-color: var(--bs-primary);
+  color: #ffffff;
+  border-color: var(--bs-primary);
+}
+
 	/* Set default look of page links */
 	.page-item .page-link {
 		background-color: #ffffff;
