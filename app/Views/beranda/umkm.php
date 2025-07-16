@@ -154,12 +154,73 @@
 		border-bottom-left-radius: 0 !important;
 	}
 
-	/* Pagination container */
+	/* Pagination Styles - Fixed for Mobile */
 	.pagination {
-		background-color: transparent;
-		gap: 0.3rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 1rem;
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		padding: 0.5rem 0;
+		flex-direction: row !important;
 	}
 
+	.pagination .page-item {
+		margin: 0 0.1rem;
+		flex-shrink: 0;
+	}
+
+	.pagination .page-item .page-link {
+		background-color: #ffffff;
+		color: var(--bs-primary);
+		border: 1px solid #dee2e6;
+		transition: all 0.2s ease-in-out;
+		padding: 0.5rem 0.875rem;
+		font-size: 0.9rem;
+		border-radius: 0.375rem;
+		white-space: nowrap;
+		min-width: 45px;
+		text-align: center;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	/* Override Bootstrap pagination defaults */
+	.pagination .page-item {
+		display: inline-block;
+		margin: 0 0.15rem;
+		flex-shrink: 0;
+	}
+
+	.pagination .page-item .page-link:hover {
+		background-color: var(--bs-primary);
+		color: #ffffff;
+		border-color: var(--bs-primary);
+	}
+
+	.pagination .page-item.active .page-link {
+		background-color: var(--bs-primary);
+		color: #ffffff;
+		border-color: var(--bs-primary);
+	}
+
+	/* Pagination Container */
+	.pagination-container {
+		position: relative;
+	}
+
+	.pagination-container::before,
+	.pagination-container::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 20px;
+		pointer-events: none;
+		z-index: 1;
+	}
 	/* Set default look of page links */
 	.page-item .page-link {
 		background-color: #ffffff;
@@ -225,8 +286,52 @@
 			left: 10px;
 		}
 
-		.pagination-wrapper .page-item .page-link {
-			width: 35px;
+		/* Mobile Pagination Styles */
+		.pagination {
+			margin-top: 1.5rem;
+			padding: 0.5rem 1rem;
+			justify-content: flex-start;
+			-webkit-overflow-scrolling: touch;
+			flex-direction: row !important;
+			flex-wrap: nowrap !important;
+		}
+
+		.pagination .page-item {
+			margin: 0 0.05rem;
+		}
+
+		.pagination .page-item .page-link {
+			padding: 0.375rem 0.65rem;
+			font-size: 0.85rem;
+			min-width: 40px;
+			height: 40px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		/* Pagination scroll indicators */
+		.pagination-container::before {
+			left: 0;
+			background: linear-gradient(to right, rgba(248, 249, 250, 1), rgba(248, 249, 250, 0));
+		}
+
+		.pagination-container::after {
+			right: 0;
+			background: linear-gradient(to left, rgba(248, 249, 250, 1), rgba(248, 249, 250, 0));
+		}
+	}
+	/* Extra small screens */
+	@media (max-width: 575px) {
+		.pagination {
+			flex-direction: row !important;
+			flex-wrap: nowrap !important;
+		}
+
+		.pagination .page-item .page-link {
+			padding: 0.3rem 0.5rem;
+			font-size: 0.8rem;
+			min-width: 35px;
 			height: 35px;
 		}
 	}
@@ -340,7 +445,7 @@
 						<div class="d-grid">
 							<a
 								href="<?= base_url('umkm/') . $user['username'] ?>"
-								class="btn btn-outline-primary rounded-pill ">
+								class="btn btn-outline-primary rounded-pill">
 								Lihat Detail <i class="fas fa-arrow-right ms-2"></i>
 							</a>
 						</div>
@@ -351,10 +456,9 @@
 		</div>
 
 		<!-- Pagination -->
-		<div class="row mt-5">
-			<div class="col-12">
-				<div class="pagination d-flex justify-content-center"><?= $pager->links() ?></div>
-			</div>
+		<!-- Pagination -->
+		<div class="pagination-container mt-0">
+			<div class="pagination d-flex justify-content-center"><?= $pager->links() ?></div>
 		</div>
 	</div>
 </section>
