@@ -390,7 +390,7 @@
 									<?= ucwords($pr['nama_produk']) ?>
 								</h6>
 								<small class="text-muted text-truncate" title="<?= $pr['umkm'] ?? 'Nama UMKM' ?>">
-									<?= $pr['umkm'] ?? 'Nama UMKM' ?>
+									<?= $pr['nama_umkm'] ?? 'Nama UMKM' ?>
 								</small>
 								<div class="mt-2">
 									<span class="fw-bold text-primary fs-6">
