@@ -33,7 +33,7 @@
 		margin-top: 2rem;
 		flex-wrap: nowrap;
 		overflow-x: auto;
-		padding: 0.5rem 0;
+		padding: 0.5rem 2rem;
 		flex-direction: row !important;
 	}
 
