@@ -274,25 +274,28 @@
 
     });
     
-const inputEl = document.getElementById('gambar<?= $user['id'] ?>');
-const previewEl = document.getElementById('preview-image<?= $user['id'] ?>');
+document.querySelectorAll('input[id^="gambar"]').forEach((inputEl) => {
+    const id = inputEl.id.replace('gambar', ''); 
+    const previewEl = document.getElementById('preview-image' + id);
 
-if (inputEl && previewEl) {
-    inputEl.addEventListener('change', function (e) {
-        const file = e.target.files[0];
-        if (file) {
+    if (previewEl) {
+        inputEl.addEventListener('change', function (e) {
+            const file = e.target.files?.[0];
+            if (!file) {
+                previewEl.src = '';
+                previewEl.style.display = 'none';
+                return;
+            }
+
             const reader = new FileReader();
             reader.onload = function (event) {
                 previewEl.src = event.target.result;
                 previewEl.style.display = 'block';
             };
             reader.readAsDataURL(file);
-        } else {
-            previewEl.src = '';
-            previewEl.style.display = 'none';
-        }
-    });
-}
+        });
+    }
+});
 
 </script>
 <!-- /.container-fluid -->
