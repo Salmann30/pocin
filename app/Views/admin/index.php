@@ -274,18 +274,26 @@
 
     });
     
-    document.getElementById('gambar<?= $user['id'] ?>').addEventListener('change', function(e) {
-    const file = e.target.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function(event) {
-            const preview = document.getElementById('preview-image<?= $user['id'] ?>');
-            preview.src = event.target.result;
-            preview.style.display = 'block';
-        };
-        reader.readAsDataURL(file);
-    }
-});
+const inputEl = document.getElementById('gambar<?= $user['id'] ?>');
+const previewEl = document.getElementById('preview-image<?= $user['id'] ?>');
+
+if (inputEl && previewEl) {
+    inputEl.addEventListener('change', function (e) {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                previewEl.src = event.target.result;
+                previewEl.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        } else {
+            // kalau file kosong, bisa kosongkan preview
+            previewEl.src = '';
+            previewEl.style.display = 'none';
+        }
+    });
+}
 
 </script>
 <!-- /.container-fluid -->
