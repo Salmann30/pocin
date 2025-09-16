@@ -288,7 +288,6 @@ if (inputEl && previewEl) {
             };
             reader.readAsDataURL(file);
         } else {
-            // kalau file kosong, bisa kosongkan preview
             previewEl.src = '';
             previewEl.style.display = 'none';
         }
